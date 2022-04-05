@@ -1,0 +1,23 @@
+{
+    "name":"Blip Portal Tools",
+    "description":"Filtrar bots por ambientes",
+    "version":"1.1",
+    "manifest_version":3,
+    
+    "icons": {
+        "16": "icon/comment.png"
+    },
+
+    "content_scripts": [
+      {
+          "matches": ["http://*.blip.ai/application", "https://*.blip.ai/application","https://*.blip.ai/*"],
+          "run_at": "document_idle",
+          "js": ["/src/contentScript/contentScript.js"]
+      }
+     ],
+
+    "permissions": ["tabs","storage","contextMenus"],
+    "background": {
+        "service_worker": "/src/background/background.js"
+    }
+}
